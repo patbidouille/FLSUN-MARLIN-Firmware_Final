@@ -1,0 +1,190 @@
+# ------------------------------------------------- -------------------------
+######################## Paramètres de base de l'imprimante (doivent être définis) ######################### #####
+
+# Type de carte mère (1: marlin; 2: répétiteur; 3: smoothie)
+> cfg_firmware_type: 1
+
+#Modèle (1: Normal; 2: Delta)
+> cfg_machine_type: 1
+
+# Débit en bauds de communication (1: 9600; 2: 57600; 3: 115200; 4: 250000)
+> cfg_baud_rate: 4
+
+# Configuration multilingue (1: activer, 0: désactiver)
+> cfg_multiple_language: 1
+
+#Langue (1: chinois simplifié; 2: chinois traditionnel; 3: anglais; 4: russe; 6: espagnol), cette configuration n'est valide que lorsque cfg_multiple_language est défini sur 0
+> cfg_language_type: 3
+
+#Nozzle (1: tête simple, 2: tête double)
+> cfg_sprayer_counter: 2
+
+# 热 床 (1: lit chaud, 0: pas de lit chaud)
+> cfg_custom_bed_flag: 1
+
+#Température cible maximale de la buse / du lit chaud
+> cfg_max_sprayer_temperature: 270
+> cfg_max_hotbed_temperature: 150
+
+#Pause position (-1 n'est pas valide; l'axe Z est la position relative)
+> cfg_XPOS: -1
+> cfg_YPOS: -1
+> cfg_ZADD: 10
+
+# ------------------------------------------------- -------------------------
+###################### Options de fonctionnalités avancées ############################### ##############
+
+# Si la machine utilise un module 220det avec alimentation UPS (1: oui; 0: non)
+> cfg_have_ups_device: 0
+
+#Accédez au module de détection de panne de courant (1: mks 220det; 0: mks pwc)
+> cfg_insert_det_module: 0
+
+# Une fois la fonction d'arrêt configurée, vous devez terminer le module d'arrêt (0: ne pas arrêter après l'arrêt, 1: arrêter après l'arrêt)
+> cfg_print_finish_close_Machine: 0
+
+#Lorsque PB0 est utilisé comme deuxième interface de coupe de buse, configuration du signal de déclenchement PB0 (1: écran tactile de haut niveau; 0: déclencheur de bas niveau)
+> cfg_PB0_trigger_Level: 0
+
+#Break interface PB1 level configuration (1: écran tactile de haut niveau; 0: déclencheur de bas niveau)
+> cfg_PB1_trigger_Level: 0
+
+# Point de rupture suite configuration d'erreur de l'axe Z
+> cfg_breakpoint_z_error: 0,2
+
+# ------------------------------------------------- --------------------------
+
+####################### Fonction de matériau d'échange ############################## ##################
+
+# Configuration de la vitesse d'alimentation "de ravitaillement" (mm / min)
+> cfg_filament_load_speed: 1200
+# Longueur d'alimentation "Ravitaillement" (mm)
+> cfg_filament_load_length: 200
+
+# Configuration de vitesse de retour "Ravitaillement" (mm / min)
+> cfg_filament_unload_speed: 1200
+# "Remplacement" Longueur de retour (mm)
+> cfg_filament_unload_length: 200
+
+# Configuration de température "Ravitaillement", cette valeur de température est la température la plus basse pendant l'alimentation et le déchargement. Si la température actuelle n'est pas atteinte, elle chauffe automatiquement.
+> cfg_filament_load_limit_temperature: 200
+
+# ------------------------------------------------- --------------------------
+
+######################## Fonction de nivellement ############################## ##################
+
+# Configuration du mode nivellement (0: mise à niveau manuelle, 1: mise à niveau automatique, 2: aucun bouton de mise à niveau affiché)
+> cfg_leveling_mode: 1
+
+Configuration de la commande du bouton de mise à niveau automatique (en général, Marlin utilise G29; répétiteur et smoothie utilisent G32)
+> cfg_auto_leveling_cmd: G28; G29;
+
+#Nombre de mise à niveau manuelle: (peut être réglé sur 3, 4, 5 points)
+> cfg_point_number: 4
+
+# Coordonnées de position manuelle de 5 points lors du nivellement manuel
+> cfg_point1: 50,50
+> cfg_point2: 180,50
+> cfg_point3: 180,180
+> cfg_point4: 50,180
+> cfg_point5: 150,150
+
+#Configuration de la vitesse de déplacement (mm / min)
+> cfg_leveling_z_speed: 1500
+> cfg_leveling_xy_speed: 3000
+
+# Lors de la mise à niveau manuelle de l'axe XY, la hauteur de l'axe Z de la tête d'extrusion par rapport à l'origine (mm)
+# Généralement sous le micrologiciel du logiciel logiciel, la reconfiguration n'est nécessaire que lorsque l'axe z revient à zéro.
+> cfg_leveling_z_high: 10
+
+# ------------------------------------------------- --------------------------
+
+####################### Fonction WIFI ############################## ##################
+
+# modèle wifi (0: MKS WIFI TFT 1: MKS HLK-WIFI)
+> cfg_wifi_type: 0
+
+Mode #wifi (0: sta; 1: ap)
+> cfg_wifi_mode: 0
+
+#wifi name
+> cfg_wifi_ap_name: Livebox-2BD8
+
+#wifipassword
+> cfg_wifi_key_code: MFUpApdrjdgova4hSk
+
+Activer le service #Cloud (0: désactiver; 1: activer)
+> cfg_cloud_enable: 1
+Adresse de service #Cloud
+> cfg_wifi_cloud_host: www.baizhongyun.cn
+Port de service #Cloud
+> cfg_cloud_port: 10086
+
+# IP dynamique
+> cfg_ip_dhcp_flag: 1
+
+# IP / masque / passerelle
+> cfg_ip_address: 192.168.1.111
+> cfg_ip_mask: 255.255.255.0
+> cfg_ip_gate: 192.168.1.1
+
+# ------------------------------------------------- -----------------------------
+
+##################### Personnalisation du bouton de fonction personnalisée ############################### ################
+
+# Bouton "Fonction" sous l'interface de réglage (0: pas d'affichage, 1: affichage); # bouton fonction 1: bouton d'affichage sous le thème "simple" et "rétro";
+
+> cfg_function_btn1_display: 1
+
+# Ligne de commande "Feature Button 1"
+> function_btn1_cmd: M84;
+
+# Boutons "Plus", jusqu'à 7
+> moreitem_pic_cnt: 0
+
+# Button1 ~ button7
+> moreitem_button1_cmd: G28 X0;
+> moreitem_button2_cmd: G28 X0;
+> moreitem_button3_cmd: G28 Y0;
+> moreitem_button4_cmd: G28 Y0;
+> moreitem_button5_cmd: G28 Z0;
+> moreitem_button6_cmd: G28 Z0;
+> moreitem_button7_cmd: G28;
+
+#Print interface numéro de bouton "plus", peut être configuré jusqu'à 5
+> morefunc_cnt: 0
+
+# Button1 ~ Button5 Configuration fonctionnelle
+> morefunc1_cmd: G28;
+> morefunc2_cmd: G28;
+> morefunc3_cmd: G28;
+> morefunc4_cmd: G28;
+> morefunc5_cmd: G28;
+
+# ------------------------------------------------- -----------------------------
+
+############## Personnalisation de l'effet d'affichage (voir les instructions pour la personnalisation des boutons et du LOGO) ###############################
+
+# Couleur de fond d'écran
+> cfg_background_color: 0x000000
+#Title text
+> cfg_title_color: 0xFFFFFF
+#Température et autres couleurs d'arrière-plan
+> cfg_state_background_color: 0x000000
+#Température et autre couleur de texte d'état
+> cfg_state_text_color: 0xFFFFFF
+#File bouton couleur d'arrière-plan du corps du nom de fichier
+> cfg_filename_background_color: 0x000000
+Couleur du corps du bouton #File sur le bouton file
+> cfg_filename_color: 0xFFFFFF
+Couleur d'impression d'arrière-plan de la police des informations d'état
+> cfg_printingstat_word_background_color: 0x000000
+#Imprimer la couleur de la police des informations d'état
+> cfg_printingstat_word_color: 0xFFFFFF
+
+#Button 3D effect (0: aucun, 1: oui)
+> cfg_BUTTON_3D_effects: 0
+
+# Flip écran 180 ° (0: pas de flip, 1: flip)
+> cfg_OVERTURN_180: 0
+# ------------------------------------------------- ----------------------
